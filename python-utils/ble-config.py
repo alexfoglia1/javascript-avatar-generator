@@ -52,7 +52,7 @@ else:
 print("SPP slave channel: {}".format(channel))
 
 command = "rfcomm bind {} {} {}".format(device, address, channel);
-bind_res = run_command(command);
-print(bind_res);
+run_command(command);
+print(run_command("ls /dev/rfcomm*");
 
     
