@@ -11,16 +11,16 @@ int main(int argc, char** argv)
 
 	GPS gps;
 	GpsServer server;
-	if (gps.open("COM24", 100))
+    if (gps.open("/dev/rfcomm0", 100))
 	{
-		std::cout << "Opened serial port COM24" << std::endl;
+        std::cout << "Opened RFCOMM0" << std::endl;
 		server.start();
 
 		QObject::connect(&gps, SIGNAL(receivedGpsPos(qint64, double, double, double)), &server, SLOT(onGpsData(qint64, double, double, double)));
 	}
 	else
 	{
-		std::cout << "Cannot open serial port COM24" << std::endl;
+        std::cout << "Cannot open serial port RFCOMM0" << std::endl;
 	}
 
 

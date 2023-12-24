@@ -86,7 +86,7 @@ void GpsServer::onGpsData(qint64 millis, double lat, double lon, double height)
 	}
 
 	QString response = QString("%1,%2,%3,%4 : %5 KM/H").arg(millis).arg(lat).arg(lon).arg(height).arg(speed);
-
+    qDebug() << response;
 	if (client)
 	{
 		client->sendTextMessage(response);
